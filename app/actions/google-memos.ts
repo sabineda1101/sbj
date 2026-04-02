@@ -27,7 +27,7 @@ export async function createMemoAction(memo: MemoData) {
       return JSON.parse(text);
     } catch (e) {
       console.error("GAS JSON Parse Error (Create). Response was:", text.substring(0, 100));
-      return { success: false, error: "구글 시트 응답이 올바르지 않습니다 (JSON 아님)" };
+      return { success: false, error: `JSON 파싱 실패. 구글 응답: ${text.substring(0, 50)}...` };
     }
   } catch (err: any) {
     console.error("GAS CREATE ERROR:", err.message);
